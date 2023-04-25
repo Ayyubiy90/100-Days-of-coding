@@ -8,7 +8,7 @@
 
 <body>
     <%-include('includes/header') %>
-        <%-include('includes/side-drawer') %>
+        <%-include('includes/side-drawer.ejs') %>
             <main>
                 <h1>Recommend restaurants</h1>
                 <% if (numberOfRestaurants===0) { %>
@@ -20,9 +20,9 @@
                             <ul id="restaurants-list">
                                 <% for (const restaurant of restaurants) { %>
                                     <%- include('includes/restaurants/restaurants-item', {restaurant: restaurant })%>
-                                <% } %>
+                                        <% } %>
                             </ul>
-                        <% } %>
+                            <% } %>
             </main>
 </body>
 
