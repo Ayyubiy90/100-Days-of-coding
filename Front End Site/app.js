@@ -41,7 +41,7 @@ app.get("/restaurants/:id", function (req, res) {
     }
   }
 
-  res.render("404");
+  res.status(404).render("404");
 });
 
 app.get("/recommend", function (req, res) {
@@ -72,7 +72,11 @@ app.get("/about", function (req, res) {
 });
 
 app.use(function (req, res) {
-  res.render("404");
+  res.status(400).render("404");
+});
+
+app.use(function (error, req, res, next) {
+  res.status(500).render("500");
 });
 
 app.listen(3000);
